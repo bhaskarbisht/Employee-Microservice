@@ -26,7 +26,7 @@ public class EmployeeController {
 	public Employee getEmployee(@PathVariable("eid") Long eid) {
 		Employee employee=employeeservice.getEmployee(eid);
 		
-		List records= this.restTemplate.getForObject("http://localhost:8090/record/emp/"+eid, List.class);
+		List records= this.restTemplate.getForObject("http://record-microservice/record/emp/"+eid, List.class);
 		employee.setRecords(records);
 		return employee;
 	}
